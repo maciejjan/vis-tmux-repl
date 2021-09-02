@@ -4,8 +4,7 @@ This plugin can be used to send selected snippets of code to a specified
 pane inside tmux, where presumably an interpreter (Read-Eval-Print Loop)
 is running.
 
-A demo can be seen here:
-![vis-tmux-repl demo](http://macjanicki.eu/misc/vis-tmux-repl-demo.gif)
+A demo can be seen [here](http://macjanicki.eu/misc/vis-tmux-repl-demo.gif).
 
 ## Usage
 
