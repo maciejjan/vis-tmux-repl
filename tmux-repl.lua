@@ -26,13 +26,11 @@ end)
 vis:command_register("repl-new", function(argv, _, win)
     local pane;
     local cmd = (argv[1] or "")
-    if not pane then
-        local f = io.popen("tmux splitw -d -l 10 -P -F '#D' " .. cmd)
-        for line in f:lines() do
-            pane = line
-        end
-        f:close()
+    local f = io.popen("tmux splitw -d -l 10 -P -F '#D' " .. cmd)
+    for line in f:lines() do
+        pane = line
     end
+    f:close()
     win.repl_target_pane = pane
 end)
 
