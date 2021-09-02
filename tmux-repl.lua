@@ -2,7 +2,7 @@
 -- If no pane ID is supplied, the command will look for the marked pane
 -- and try to use it. It prints an error message if there is no marked pane.
 vis:command_register("repl-set", function(argv, _, win)
-	local pane = argv[1]
+    local pane = argv[1]
     if not pane then
         local f = io.popen("tmux lsp -s -F \"#D #{pane_marked}\" \\;" ..
                            "     select-pane -M " ..
@@ -23,8 +23,8 @@ end)
 -- in the opened pane. E.g.:
 --   :repl-new python3
 vis:command_register("repl-new", function(argv, _, win)
-	local pane;
-	local cmd = (argv[1] or "")
+    local pane;
+    local cmd = (argv[1] or "")
     if not pane then
         local f = io.popen("tmux splitw -d -l 10 -P -F '#D' " .. cmd)
         for line in f:lines() do
