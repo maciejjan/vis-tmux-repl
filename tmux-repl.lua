@@ -10,6 +10,7 @@ vis:command_register("repl-set", function(argv, _, win)
         for line in f:lines() do
             pane = line
         end
+        f:close()
     end
     if pane then
         win.repl_target_pane = pane
@@ -30,6 +31,7 @@ vis:command_register("repl-new", function(argv, _, win)
         for line in f:lines() do
             pane = line
         end
+        f:close()
     end
     win.repl_target_pane = pane
 end)
