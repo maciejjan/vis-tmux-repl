@@ -37,7 +37,7 @@ end)
 -- Sends the selected text to the REPL target pane. (use in visual mode)
 vis:command_register("repl-send", function(argv, _, win)
     if win.repl_target_pane then
-        vis:command('> sed \'s/;$/\\\\\\;/g; s/.*/\\0\\\\nEnter/\' ' ..
+        vis:command('> sed \'s/;$/\\\\\\;/g; s/\\(.*\\)/\\1\\\\nEnter/\' ' ..
                     '  | tr "\\\\n" "\\0" ' ..
                     '  | xargs -0 tmux send-keys -t ' .. win.repl_target_pane)
     end
