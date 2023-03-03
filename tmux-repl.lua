@@ -4,7 +4,7 @@
 vis:command_register("repl-set", function(argv, _, win)
     local pane = argv[1]
     if not pane then
-        local f = io.popen("tmux lsp -s -F \"#D #{pane_marked}\" \\;" ..
+        local f = io.popen("tmux lsp -a -F \"#D #{pane_marked}\" \\;" ..
                            "     select-pane -M " ..
                            "| awk '$2 == 1 { print $1; }'")
         for line in f:lines() do
