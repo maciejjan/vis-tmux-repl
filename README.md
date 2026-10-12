@@ -43,11 +43,17 @@ interpreters efficiently:
 
 ```
 vis.events.subscribe(vis.events.INIT, function()
-    -- ... (other initial settings)
-
-    vis:command("map! normal <C-r> :repl-new")
-    vis:command("map! normal <C-e> :repl-set<Enter>")
-    vis:command("map! visual <C-e> :repl-send<Enter><vis-mode-normal>")
+		-- ... (other initial settings)
+    vis:map(vis.modes.NORMAL, "<C-r>", function()
+      vis:command("repl-new")
+    end)
+    vis:map(vis.modes.NORMAL, "<C-e>", function()
+      vis:command("repl-set")
+    end)
+    vis:map(vis.modes.VISUAL, "<C-e>", function()
+      vis:command("repl-send")
+      vis:feedkeys("<Esc>")
+    end)
 end)
 ```
 
